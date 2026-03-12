@@ -1,0 +1,67 @@
+/* Reset default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root styling */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0b1220;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make app full screen */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Body layout */
+body {
+  background-color: #0b1220;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: #4f7cff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #6c8dff;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a2a2a;
+}
