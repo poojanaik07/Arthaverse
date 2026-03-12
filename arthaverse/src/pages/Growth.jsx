@@ -201,41 +201,40 @@ export default function Growth() {
     return (
         <div style={{ padding: "25px", width: "100%" }}>
 
-            {/* Growth Strategy Score */}
-            <div style={{
-                background: "#020617",
-                padding: "18px",
-                borderRadius: "10px",
-                border: "1px solid #1e293b",
-                marginBottom: "20px"
-            }}>
-                <h3 style={{ color: "#22d3ee" }}>Growth Strategy Score</h3>
+            {/* Top Metrics */}
 
-                <h2 style={{ color: "#22c55e", marginTop: "5px" }}>
-                    {growthScore} / 100
-                </h2>
+            <div
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3,1fr)",
+                    gap: "20px",
+                    marginBottom: "25px"
+                }}
+            >
 
-                <p style={{ color: "#94a3b8" }}>
-                    Indicates how strong your current growth strategy is.
-                </p>
+                <div className="card">
+                    <div className="title">Growth Score</div>
+                    <div className="metric">{growthScore}/100</div>
+                    <p>{healthStatus}</p>
+                </div>
 
-                <p style={{
-                    marginTop: "8px",
-                    color: growthScore > 80 ? "#22c55e" : growthScore > 60 ? "#facc15" : "#f87171"
-                }}>
-                    {healthStatus}
-                </p>
+                <div className="card">
+                    <div className="title">Projected Revenue</div>
+                    <div className="metric">₹{displayRevenue}</div>
+                    <p>6-month projection</p>
+                </div>
+
+                <div className="card">
+                    <div className="title">AI Reinvestment</div>
+                    <div className="metric">₹{reinvest}</div>
+                    <p>Recommended capital</p>
+                </div>
+
             </div>
 
             {/* AI Recommendation */}
-            <div style={{
-                background: "#021b22",
-                padding: "18px",
-                borderRadius: "10px",
-                border: "1px solid #134e4a",
-                marginBottom: "20px"
-            }}>
-                <h3 style={{ color: "#14b8a6" }}>AI Growth Recommendation</h3>
+            <div className="card" style={{ marginBottom: "20px" }}>
+                <h3 className="title">AI Growth Recommendation</h3>
 
                 <p style={{ color: "#cbd5f5", marginTop: "5px" }}>
                     Based on your financial data, your business can safely grow
@@ -255,14 +254,9 @@ export default function Growth() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 
                     {/* Financial Inputs */}
-                    <div style={{
-                        background: "#020617",
-                        padding: "20px",
-                        borderRadius: "12px",
-                        border: "1px solid #1e293b"
-                    }}>
+                    <div className="card">
 
-                        <h3 style={{ color: "#22d3ee", marginBottom: "20px" }}>
+                        <h3 className="title">
                             Financial Inputs
                         </h3>
 
@@ -276,17 +270,8 @@ export default function Growth() {
 
                         <button
                             onClick={runAnalysis}
-                            style={{
-                                marginTop: "15px",
-                                width: "100%",
-                                padding: "12px",
-                                background: "#06b6d4",
-                                border: "none",
-                                borderRadius: "6px",
-                                color: "white",
-                                fontWeight: "bold",
-                                cursor: "pointer"
-                            }}
+                            className="primary-btn"
+                            style={{ width: "100%", marginTop: "15px" }}
                         >
                             Run AI Analysis
                         </button>
@@ -294,12 +279,7 @@ export default function Growth() {
                     </div>
 
                     {/* Growth Drivers */}
-                    <div style={{
-                        background: "#020617",
-                        padding: "18px",
-                        borderRadius: "10px",
-                        border: "1px solid #1e293b"
-                    }}>
+                    <div className="card">
                         <h3 style={{ color: "#22d3ee" }}>Growth Drivers</h3>
 
                         <p style={{ color: "#94a3b8" }}>
@@ -354,12 +334,7 @@ export default function Growth() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
 
                     {/* Simulator */}
-                    <div style={{
-                        background: "#020617",
-                        padding: "20px",
-                        borderRadius: "12px",
-                        border: "1px solid #1e293b"
-                    }}>
+                    <div className="card">
                         <h3 style={{ color: "#22d3ee" }}>Growth Scenario Simulator</h3>
 
                         <p style={{ color: "#94a3b8" }}>
@@ -392,12 +367,8 @@ export default function Growth() {
                     </div>
 
                     {/* Chart */}
-                    <div style={{
-                        background: "#020617",
-                        padding: "20px",
-                        borderRadius: "12px",
-                        border: "1px solid #1e293b"
-                    }}>
+                    <div className="card">
+
                         <h3 style={{ color: "#22d3ee", marginBottom: "10px" }}>
                             Business Growth vs Market Trend
                         </h3>
@@ -409,9 +380,27 @@ export default function Growth() {
                                 <YAxis stroke="#94a3b8" />
                                 <Tooltip />
                                 <Legend />
-                                <Line type="monotone" dataKey="business" stroke="#22c55e" strokeWidth={3} />
-                                <Line type="monotone" dataKey="market" stroke="#38bdf8" strokeWidth={2} />
-                                <Line type="monotone" dataKey="competitor" stroke="#f59e0b" strokeWidth={2} />
+                                <Line
+                                    type="monotone"
+                                    dataKey="business"
+                                    stroke="#22c55e"
+                                    strokeWidth={3}
+                                    dot={{ r: 4 }}
+                                />
+
+                                <Line
+                                    type="monotone"
+                                    dataKey="market"
+                                    stroke="#38bdf8"
+                                    strokeWidth={2}
+                                />
+
+                                <Line
+                                    type="monotone"
+                                    dataKey="competitor"
+                                    stroke="#f59e0b"
+                                    strokeWidth={2}
+                                />
                             </LineChart>
                         </ResponsiveContainer>
 
@@ -421,12 +410,7 @@ export default function Growth() {
                     </div>
 
                     {/* Target vs Projection */}
-                    <div style={{
-                        background: "#020617",
-                        padding: "18px",
-                        borderRadius: "10px",
-                        border: "1px solid #1e293b"
-                    }}>
+                    <div className="card">
                         <h3 style={{ color: "#22d3ee" }}>Target vs Projection</h3>
 
                         <p style={{ color: "#94a3b8" }}>
